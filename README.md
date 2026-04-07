@@ -16,7 +16,7 @@ FaceSync is a high-performance, real-time facial recognition web application. It
 
 **1. Clone the repository and install requirements**
 ```bash
-git clone https://github.com/yourusername/FaceSync.git
+git clone https://github.com/takshakpatel/FaceSync.git
 cd FaceSync
 pip install -r backend/requirements.txt
 ```
