@@ -25,7 +25,6 @@ pip install -r backend/requirements.txt
 ```bash
 python backend/app.py
 ```
-*(Note: On your very first run, DeepFace will automatically download the 137MB ArcFace model weights).*
 
 **3. Open the Dashboard**
 Navigate to `http://localhost:5000` in your web browser.
