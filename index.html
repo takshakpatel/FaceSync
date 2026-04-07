@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Face Recognition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="top-nav glass-panel">
+            <div class="logo">
+                <div class="logo-dot"></div>
+                <h1>Face<span class="highlight">Sync</span></h1>
+            </div>
+            
+            <div class="system-status">
+                <div class="status-indicator" id="status-indicator"></div>
+                <span id="status-text">System Initializing...</span>
+                
+                <div class="camera-selector">
+                    <select id="camera-select" title="Select Camera">
+                        <option value="0">Camera 0 (Default)</option>
+                        <option value="1">Camera 1</option>
+                        <option value="2">Camera 2</option>
+                        <option value="3">Camera 3</option>
+                        <option value="url">🌐 Mobile IP Camera...</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="main-grid">
+            
+            <!-- Left Panel: Live Stream -->
+            <section class="video-panel glass-panel">
+                <div class="panel-header">
+                    <h2>Live Source</h2>
+                    <span class="badge" id="fps-counter">-- FPS</span>
+                </div>
+                <div class="video-container">
+                    <!-- The MJPEG Stream from Flask -->
+                    <img id="video-stream" src="/video_feed" alt="Video Stream Offline" />
+                    <!-- Loading skeleton -->
+                    <div class="skeleton-stream" id="skeleton-stream">
+                        <div class="spinner"></div>
+                        <p>Waiting for camera feed...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Recognition Events -->
+            <section class="events-panel glass-panel">
+                <div class="panel-header">
+                    <h2>Recognition Log</h2>
+                    <div class="live-pulse">Live</div>
+                </div>
+                <div class="events-list" id="events-list">
+                    <!-- Event cards injected by JS -->
+                    <div class="empty-state">No events yet</div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Grid: Enrollment & Gallery -->
+        <section class="bottom-grid">
+            
+            <!-- Enrollment Form -->
+            <div class="enrollment-panel glass-panel">
+                <div class="panel-header">
+                    <h2>Enroll New Face</h2>
+                </div>
+                <form id="enroll-form">
+                    <div class="input-group">
+                        <label for="person-name">Full Name</label>
+                        <input type="text" id="person-name" required placeholder="e.g. Jane Doe" autocomplete="off">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="person-image">Upload Photo</label>
+                        <input type="file" id="person-image" accept="image/*" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" id="enroll-btn">
+                        <span>Enroll Person</span>
+                    </button>
+                    <div id="enroll-status" class="form-message"></div>
+                </form>
+            </div>
+
+            <!-- Pre-enrolled Gallery -->
+            <div class="gallery-panel glass-panel">
+                <div class="panel-header">
+                    <h2>Enrolled Gallery</h2>
+                    <span class="badge" id="enrolled-count">0 subjects</span>
+                </div>
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Faces injected by JS -->
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Latest Recognition Overlay (Hidden by default, triggered on recognize) -->
+    <div id="latest-recognition" class="recognition-overlay" style="display:none;">
+        <div class="glass-panel profile-card">
+            <h3 id="overlay-name">Jane Doe</h3>
+            <div class="confidence">
+                <span>Confidence</span>
+                <span id="overlay-conf">98%</span>
+            </div>
+            <div class="conf-bar-bg"><div class="conf-bar-fill" id="overlay-bar"></div></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
