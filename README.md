@@ -6,7 +6,7 @@ FaceSync is a high-performance, real-time facial recognition web application. It
 
 ## Features
 
-* **Ultra-Low Latency Streaming:** Custom multi-threaded background buffer flushing guarantees zero-lag live capture from local webcams and network IP cameras.
+* **Low Latency Streaming:** Custom multi-threaded background buffer flushing guarantees zero-lag live capture from local webcams and network IP cameras.
 * **Hybrid Recognition Engine:** Uses lightweight OpenCV cascades for 30fps tracking and periodically extracts heavy Deep Learning embeddings to maintain maximum performance.
 * **Mobile IP Camera Support:** Readily accepts URL streams from smartphone IP Camera apps out-of-the-box using FFmpeg backend optimization.
 * **Instant Auto-Enrollment:** Instantly detects, crops, and enrolls faces via an intuitive web dashboard without server restarts.
