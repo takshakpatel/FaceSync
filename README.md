@@ -12,23 +12,24 @@ FaceSync is a high-performance, real-time facial recognition web application. It
 * **Instant Auto-Enrollment:** Instantly detects, crops, and enrolls faces via an intuitive web dashboard without server restarts.
 * **Dynamic Event Log:** Real-time push updates of who is currently on screen alongside confidence percentages.
 
-##  Installation
+## Installation
 
 **1. Clone the repository and install requirements**
 ```bash
 git clone https://github.com/takshakpatel/FaceSync.git
 cd FaceSync
 pip install -r requirements.txt
-python app.py
+```
 
 **2. Start the Server**
-`git clone https://github.com/takshakpatel/FaceSync.git
-cd FaceSync
-pip install -r requirements.txt
+```bash
 python app.py
+```
 
 **3. Open the Dashboard**
-Navigate to `http://localhost:5000` in your web browser.
+Navigate to `http://localhost:5000` in your web browser.y
+
+
 
 ##  Using a Mobile Phone as a Camera
 1. Install a free IP Camera app on your smartphone (e.g., "IP Webcam" on Android).
